@@ -51,3 +51,8 @@ docker run -p 80:80 -v /path/to/your/sites:/var/www static-server
    - Status: `200 OK`
    - Body: `(empty)`
    - This applies to *any* error (permissions, missing file, etc.).
+4. **Maintenance Mode**:
+   - **Global**: Create `.maintenance` in the valid `WEB_ROOT` (e.g., `/var/www/.maintenance`).
+   - **Per-Domain**: Create `.maintenance` in the domain directory (e.g., `/var/www/example.com/.maintenance`).
+   - **Custom Page**: Place `maintenance.html` in the domain directory (or root for global) to override the default page.
+   - **Behavior**: Returns `503 Service Unavailable` with the maintenance page.
